@@ -1,0 +1,17 @@
+{% load i18n %}
+
+{% if not request.user.profile.skills %}
+    {% trans "You have no submitted skills." %}
+{% endif %}
+<table class="table">
+{% for profile_skill in request.user.profile.skills %}
+    <tr>
+        <td>{{ profile_skill.skill.name }}</td>
+        <td>{{ profile_skill.level.name }}</td>
+        {% if display_edit %}
+            <td><a href="{% url "edit_skill" %}?skill_id={{ profile_skill.pk }}"><button type="button" class="btn btn-success">{% trans "Edit skill" %}</button></a></td>
+            <td><a class="skill-deleter" href="{% url "edit_skills" %}?delete_skill_id={{ profile_skill.pk }}"><button type="button" class="btn btn-danger">{% trans "Delete skill" %}</button></a></td>
+        {% endif %}
+    </tr>
+{% endfor %}
+</table>

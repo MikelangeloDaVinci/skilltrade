@@ -1,0 +1,9 @@
+{% extends 'website/base.html' %}
+{% load bootstrap i18n %}
+{% block title %}{% trans "Login" %}{% endblock %}
+{% block content %}
+{% trans "Login" as form_title %}
+{% trans "Submit" as submit_text %}
+{% include "website/includes/standard_form.html" with form_title=form_title submit_text=submit_text %}
+<a href="{% url "sign_up" %}">{% trans "Sign up with a new account" %}</a> | <a href="{% url "password_reset" %}">{% trans "Forgot password?" %}</a>
+{% endblock %}

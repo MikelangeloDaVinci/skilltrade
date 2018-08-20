@@ -1,0 +1,9 @@
+{% extends 'website/base.html' %}
+{% load bootstrap i18n %}
+{% block title %}{% trans "Edit skill" %}{% endblock %}
+{% block content %}
+{% trans "Edit skill" as form_title %}
+{% trans "Edit" as submit_text %}
+<h1>{{ profile_skill.skill.name }}</h1>
+{% include "website/includes/standard_form.html" with form_title=form_title submit_text=submit_text is_multipart=True %}
+{% endblock %}

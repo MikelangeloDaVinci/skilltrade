@@ -1,0 +1,8 @@
+{% extends 'website/base.html' %}
+{% load bootstrap i18n %}
+
+{% block content %}
+    {% if USER_HAS_MISSING_PROFILE_DATA %}
+        <a href="{% url "user_settings" %}">{% trans "Please update your profile" %}</a>
+    {% endif %}
+{% endblock %}

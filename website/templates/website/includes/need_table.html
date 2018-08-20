@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% if not request.user.profile.needs %}
+    {% trans "You have no submitted needs." %}
+{% endif %}
+<table class="table">
+{% for needed_skill in request.user.profile.needs %}
+    <tr>
+        <td>{{ needed_skill.skill.name }}</td>
+        <td>{{ needed_skill.hours }}</td>
+        <td>{{ needed_skill.description }}</td>
+        {% if display_edit %}
+            <td><a href="{% url "edit_need" %}?need_id={{ needed_skill.pk }}"><button type="button" class="btn btn-success">{% trans "Edit need" %}</button></a></td>
+            <td><a class="need-deleter" href="{% url "edit_needs" %}?delete_need_id={{ needed_skill.pk }}"><button type="button" class="btn btn-danger">{% trans "Delete need" %}</button></a></td>
+        {% endif %}
+    </tr>
+{% endfor %}
+</table>

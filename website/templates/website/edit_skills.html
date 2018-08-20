@@ -1,0 +1,10 @@
+{% extends 'website/base.html' %}
+{% load bootstrap i18n %}
+{% block title %}{% trans "Edit skills" %}{% endblock %}
+{% block content %}
+<h3>{% trans "Current skills" %}</h3>
+{% include "website/includes/skill_table.html" with display_edit=True %}
+{% trans "Add skill" as form_title %}
+{% trans "Add" as submit_text %}
+{% include "website/includes/standard_form.html" with form_title=form_title submit_text=submit_text form_id="skill_form" %}
+{% endblock %}
